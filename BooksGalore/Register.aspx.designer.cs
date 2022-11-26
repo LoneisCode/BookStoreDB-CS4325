@@ -42,6 +42,33 @@ namespace BooksGalore
         protected global::System.Web.UI.WebControls.TextBox uName;
 
         /// <summary>
+        /// emailBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox emailBx;
+
+        /// <summary>
+        /// addyBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox addyBx;
+
+        /// <summary>
+        /// phoneNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox phoneNum;
+
+        /// <summary>
         /// passwd control.
         /// </summary>
         /// <remarks>
@@ -58,5 +85,14 @@ namespace BooksGalore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox passwdConfirm;
+
+        /// <summary>
+        /// wentWrong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label wentWrong;
     }
 }
