@@ -50,21 +50,21 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/About"></a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/">Login</a></li>
                         <li><a runat="server" href="~/">Sign Up</a></li>
                     </ul>
                 </div>
             </div>
        </div>
-        <div class="container body-content">
+        <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+        <div class="container">
             <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Welcome to BooksGalore</p>
             </footer>
+        </div>
         </div>
 
     </form>
