@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPortal.aspx" />
     <Content Include="App_Data\BooksGaloreDB.mdf" />
     <Content Include="App_Data\BooksGaloreDB_log.ldf">
       <DependentUpon>BooksGaloreDB.mdf</DependentUpon>
@@ -258,6 +259,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPortal.aspx.cs">
+      <DependentUpon>AdminPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPortal.aspx.designer.cs">
+      <DependentUpon>AdminPortal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BookShop.aspx.cs">

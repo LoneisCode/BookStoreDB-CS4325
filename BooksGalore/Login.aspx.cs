@@ -35,7 +35,14 @@ namespace BooksGalore.Style
                 if(Validate(username, password))
                 {
                     Session["username"] = username;
-                    Response.Redirect("BookShop.aspx");
+                    if(username == "Admin")
+                    {
+                        Response.Redirect("AdminPortal.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("BookShop.aspx");
+                    }
                 }
                 else
                 {
