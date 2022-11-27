@@ -6,12 +6,12 @@
         <div id="form" class="form-group">
             <h1 id="formTitle">Welcome back beloved customer!</h1>
             <hr />
-                <asp:Label runat="server"  CssClass="lblfield">Username</asp:Label>
-                <asp:TextBox runat="server" ClientIDMode="Static" cssClass="form-control regTxtBx" ID="uName" />
+                <asp:Label runat="server"  CssClass="lblfield" >Username</asp:Label>
+                <asp:TextBox runat="server" ClientIDMode="Static" cssClass="form-control regTxtBx" ID="uName" required="true" />
                 <asp:Label runat="server" CssClass="lblfield">Password</asp:Label>
-                <asp:TextBox runat="server" ClientIDMode="Static" cssClass="form-control regTxtBx" TextMode="Password" ID="passwd" />
-            <asp:Button runat="server" CssClass="btn btn-primary" Text="Login" OnClick="Log_Click"/>
-            <asp:Label CssClass="alert alert-danger" Visible="false" runat="server" />
+                <asp:TextBox runat="server" ClientIDMode="Static" cssClass="form-control regTxtBx" TextMode="Password" ID="passwd" required="true"/>
+            <asp:Button runat="server" CssClass="btn btn-primary" Text="Login" OnClick="Log_Click" Type="submit"/>
+            <asp:Label CssClass="alert alert-danger regTxtBx" Visible="false" runat="server" ID="wentWrong" />
         </div>
     </div>
 </asp:Content>

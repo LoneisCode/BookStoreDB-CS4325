@@ -8,7 +8,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
-
+using static BooksGalore.CommonQuerys;
 namespace BooksGalore
 {
     public partial class Register : System.Web.UI.Page
@@ -20,10 +20,10 @@ namespace BooksGalore
 
         protected void Reg_Click(object sender, EventArgs e)
         {
-            validateForm();
+            ValidateForm();
         }
 
-        private void validateForm()
+        private void ValidateForm()
         {
             if (Page.IsValid)
             {
@@ -108,34 +108,6 @@ namespace BooksGalore
                 }
 
                 conn.Close();
-            }
-        }
-
-        private bool UserAlreadlyExist(string username)
-        {
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
-                SqlCommand cmd = new SqlCommand
-                {
-                    CommandText = "SELECT * FROM Customer WHERE Username = '" + username + "'",
-                    Connection = conn
-                };
-                conn.Open();
-
-                SqlDataReader sdr = cmd.ExecuteReader();
-                //if username has been used for registration 
-                if (sdr.HasRows)
-                {
-                    conn.Close();
-                    return true;
-                }
-                else
-                {
-                    conn.Close();
-                    return false;
-                }
-                
             }
         }
 
