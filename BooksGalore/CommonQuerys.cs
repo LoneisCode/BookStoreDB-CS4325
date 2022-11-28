@@ -30,6 +30,7 @@ namespace BooksGalore
                     return true;
                 }
                 else
+
                 {
                     conn.Close();
                     return false;
