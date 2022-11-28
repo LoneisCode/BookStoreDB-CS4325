@@ -1,0 +1,37 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #704b5b;
+}
+#bookSplash {
+    height: 100%;
+    width: 100vw;
+    
+}
+.splashCont {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+#form{
+    position: absolute;
+    background-color: #704b5b;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    padding: 2.5%;
+    font-size: 2.5em;
+    text-align: center;
+}
+#formTitle{
+    text-align: center;
+    font-weight: bold;
+}
+.regTxtBx {
+    margin:auto;
+}

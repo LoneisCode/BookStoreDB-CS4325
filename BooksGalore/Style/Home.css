@@ -5,9 +5,53 @@
     padding: 0;
     scroll-behavior: smooth;
 }
-#LibBackSplash{
+body {
+    background-color: #704b5b;
+}
+.splashCont {
+    height:100vh;
+    overflow: hidden;
     position: relative;
 }
-#TitleText {
- position: absolute;
+#bookSplash{
+    height: 100%;
+    width: 100vw;
+}
+#homeTitle {
+    position: absolute;
+    background-color:#704b5b;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    padding: 2.5%;
+    font-size: 2.5em;
+}
+.devInfo{
+    margin: 2%;
+    display: flex;
+    justify-content:space-around;    
+    overflow: hidden;
+    
+}
+#devTitle {
+    background-color: #333333;
+    font-size: 2em;
+    color: aliceblue;
+    font-weight: bold;
+    padding: .7%;
+    margin: 2% 40% 2% 40%;
+    text-align: center;
+}
+.indivInfo {
+    flex: 50%;
+    max-width: min-content;
+}
+.devImg{
+    min-width: 80%;
+}
+.devName{
+    font-weight:bold;
+    color:aliceblue;
+    width:max-content;
 }
