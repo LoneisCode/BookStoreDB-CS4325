@@ -15,6 +15,7 @@ namespace BooksGalore
     {
         public static String AdminTableStr;
         public static String IDName;
+        public static int ID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -190,7 +191,6 @@ namespace BooksGalore
         protected void gvAdminInfo_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             //edit adn delete button functionality
-            int ID = 0;
             if (e.CommandName == "EditRow") // the Edit button was clicked
             {
                 ID = int.Parse(e.CommandArgument.ToString());
