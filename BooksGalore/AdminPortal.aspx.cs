@@ -221,13 +221,13 @@ namespace BooksGalore
 
                     cmd.ExecuteNonQuery();
 
-                    if (AdminTableStr == "Customers")
+                    if (AdminTableStr == "Customer")
                         CustomerBind();
-                    else if (AdminTableStr == "Orders")
+                    else if (AdminTableStr == "Order")
                         OrderBind();
                     else if (AdminTableStr == "Books")
                         BookBind();
-                    else if (AdminTableStr == "Suppliers")
+                    else if (AdminTableStr == "Supplier")
                         SupplierBind();
                     else
                         AuthorBind();
