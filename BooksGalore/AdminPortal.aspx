@@ -10,5 +10,17 @@
     <asp:Button ID="btnAuthorList" runat="server" Text="Author List" onClick ="btnAuthorList_Click"/>
 
     <br />
-    <asp:GridView ID="gvAdminInfo" runat="server"></asp:GridView>
+    <asp:Panel ID="pnlAdmin" runat="server">
+        <asp:GridView ID="gvAdminInfo" runat="server">
+            <Columns>
+                <asp:TemplateField HeaderText="Actions">
+                    <ItemTemplate>
+                        <asp:Button ID="btnEdit" runat="server" CssClass="btn btn-primary" Text="Edit" CommandName="EditRow" />
+                        <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger"
+                            OnClientClick="return confirm('Are you sure you want to delete this habit?')" Text="Delete" CommandName="DeleteRow" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns> 
+        </asp:GridView>
+    </asp:Panel>
 </asp:Content>
