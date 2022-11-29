@@ -12,6 +12,14 @@ namespace BooksGalore
 {
     public partial class EditBook : System.Web.UI.Page
     {
+        string UserReviews;
+        string PublicationDate;
+        string Price;
+        string Title;
+        string AuthorID;
+        string SID;
+        string CategoryCode;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             int localId = AdminPortal.ID;
@@ -33,6 +41,7 @@ namespace BooksGalore
                 {
                     
                     txtUserReviews.Text = sdr["UserReviews"].ToString();
+                    UserReviews = txtUserReviews.Text;
                     conn.Close();
                 }
                 else
@@ -62,6 +71,7 @@ namespace BooksGalore
                 {
                     
                     txtPublicationDate.Text = sdr["PublicationDate"].ToString();
+                    PublicationDate = txtPublicationDate.Text; 
                     conn.Close();
                 }
                 else
@@ -91,6 +101,7 @@ namespace BooksGalore
                 {
                    
                     txtPrice.Text = sdr["Price"].ToString();
+                    Price = txtPrice.Text;
                     conn.Close();
                 }
                 else
@@ -120,6 +131,7 @@ namespace BooksGalore
                 {
                     
                     txtTitle.Text = sdr["Title"].ToString();
+                    Title = txtTitle.Text;
                     conn.Close();
                 }
                 else
@@ -149,6 +161,7 @@ namespace BooksGalore
                 {
                     
                     txtAuthorID.Text = sdr["AuthorID"].ToString();
+                    AuthorID = txtAuthorID.Text;
                     conn.Close();
                 }
                 else
@@ -178,6 +191,7 @@ namespace BooksGalore
                 {
                     
                     txtSID.Text = sdr["SID"].ToString();
+                    SID = txtSID.Text;
                     conn.Close();
                 }
                 else
@@ -207,6 +221,7 @@ namespace BooksGalore
                 {
                     
                     txtCategoryCode.Text = sdr["CategoryCode"].ToString();
+                    CategoryCode = txtCategoryCode.Text;
                     conn.Close();
                 }
                 else
@@ -233,6 +248,41 @@ namespace BooksGalore
                 Connection = conn
             };
             Response.Redirect("AdminPortal.aspx");
+        }
+
+        protected void txtUserReviews_TextChanged(object sender, EventArgs e)
+        {
+            UserReviews = txtUserReviews.Text;
+        }
+
+        protected void txtPublicationDate_TextChanged(object sender, EventArgs e)
+        {
+            PublicationDate = txtPublicationDate.Text;
+        }
+
+        protected void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+            Price = txtPrice.Text;
+        }
+
+        protected void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+            Title = txtTitle.Text;
+        }
+
+        protected void txtAuthorID_TextChanged(object sender, EventArgs e)
+        {
+            AuthorID = txtAuthorID.Text;
+        }
+
+        protected void txtSID_TextChanged(object sender, EventArgs e)
+        {
+            SID = txtSID.Text;
+        }
+
+        protected void txtCategoryCode_TextChanged(object sender, EventArgs e)
+        {
+            CategoryCode = txtCategoryCode.Text;
         }
     }
 }

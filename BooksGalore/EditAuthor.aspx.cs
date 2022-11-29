@@ -12,6 +12,11 @@ namespace BooksGalore
 {
     public partial class EditAuthor : System.Web.UI.Page
     {
+        String gender;
+        String FName;
+        String LName;
+        String DOB;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             int localId = AdminPortal.ID;
@@ -33,6 +38,7 @@ namespace BooksGalore
                 {
                     
                     txtGender.Text = sdr["Gender"].ToString();
+                    gender = txtGender.Text;
                     conn.Close();
                 }
                 else
@@ -62,6 +68,7 @@ namespace BooksGalore
                 {
                     
                     txtFName.Text = sdr["FName"].ToString();
+                    FName = txtFName.Text;
                     conn.Close();
                 }
                 else
@@ -91,6 +98,7 @@ namespace BooksGalore
                 {
                     
                     txtLName.Text = sdr["LName"].ToString();
+                    LName = txtLName.Text;
                     conn.Close();
                 }
                 else
@@ -120,6 +128,7 @@ namespace BooksGalore
                 {
                     
                     txtDOB.Text = sdr["DOB"].ToString();
+                    DOB = txtDOB.Text;
                     conn.Close();
                 }
                 else
@@ -142,10 +151,30 @@ namespace BooksGalore
 
             SqlCommand updateDb = new SqlCommand
             {
-                CommandText = $"UPDATE Author SET Gender = {txtGender.Text}, FName = {txtFName.Text}, LName = {txtLName.Text}, DOB = {txtDOB.Text} WHERE AuthorID = {AdminPortal.ID};",
+                CommandText = $"UPDATE Author SET Gender = {gender}, FName = {FName}, LName = {LName}, DOB = {DOB} WHERE AuthorID = {AdminPortal.ID};",
                 Connection = conn
             };
             Response.Redirect("AdminPortal.aspx");
+        }
+
+        protected void txtGender_TextChanged(object sender, EventArgs e)
+        {
+            gender = txtGender.Text;
+        }
+
+        protected void txtFName_TextChanged(object sender, EventArgs e)
+        {
+            FName = txtFName.Text; 
+        }
+
+        protected void txtLName_TextChanged(object sender, EventArgs e)
+        {
+            LName = txtLName.Text;
+        }
+
+        protected void txtDOB_TextChanged(object sender, EventArgs e)
+        {
+            DOB = txtDOB.Text; 
         }
     }
 }
