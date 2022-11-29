@@ -1,0 +1,19 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #704b5b;
+}
+
+.itemCard{
+    border: double black 3px;
+    background-color: lightgrey;
+    margin: 10px;
+    text-align: left;
+    padding: 10px;
+}
+

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="BookShop" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BookShop.aspx.cs" Inherits="BooksGalore.BookShop" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <link href="../Style/BookShop.css" rel ="stylesheet" type="text/css" />
+    
     <h1>Galore of Books</h1>
     <asp:Repeater runat="server" ID="BookCard" >
         <ItemTemplate>
