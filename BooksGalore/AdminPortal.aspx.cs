@@ -174,21 +174,32 @@ namespace BooksGalore
             gvAdminInfo.Visible = true;
         }
 
-        protected void gvAdminInfo_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void btnCustomerList_Click(object sender, EventArgs e)
         {
-            //edit and delete button
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                Button editButton = e.Row.FindControl("btnEdit") as Button;
-                Button deleteButton = e.Row.FindControl("btnDelete") as Button;
-
-                editButton.CommandArgument = e.Row.Cells[0].Text;
-                deleteButton.CommandArgument = e.Row.Cells[0].Text;
-
-            }
+            CustomerBind();
         }
 
-        protected void gvAdminInfo_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void btnOrderList_Click(object sender, EventArgs e)
+        {
+            OrderBind();
+        }
+
+        protected void btnBookList_Click(object sender, EventArgs e)
+        {
+            BookBind();
+        }
+
+        protected void btnSupplierList_Click(object sender, EventArgs e)
+        {
+            SupplierBind();
+        }
+
+        protected void btnAuthorList_Click(object sender, EventArgs e)
+        {
+            AuthorBind();
+        }
+
+        protected void gvAdminInfo_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
             //edit adn delete button functionality
             if (e.CommandName == "EditRow") // the Edit button was clicked
@@ -231,34 +242,23 @@ namespace BooksGalore
                         SupplierBind();
                     else
                         AuthorBind();
-
                 }
+
             }
         }
 
-        protected void btnCustomerList_Click(object sender, EventArgs e)
+        protected void gvAdminInfo_RowDataBound1(object sender, GridViewRowEventArgs e)
         {
-            CustomerBind();
-        }
+            //edit and delete button
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Button editButton = e.Row.FindControl("btnEdit") as Button;
+                Button deleteButton = e.Row.FindControl("btnDelete") as Button;
 
-        protected void btnOrderList_Click(object sender, EventArgs e)
-        {
-            OrderBind();
-        }
+                editButton.CommandArgument = e.Row.Cells[0].Text;
+                deleteButton.CommandArgument = e.Row.Cells[0].Text;
 
-        protected void btnBookList_Click(object sender, EventArgs e)
-        {
-            BookBind();
-        }
-
-        protected void btnSupplierList_Click(object sender, EventArgs e)
-        {
-            SupplierBind();
-        }
-
-        protected void btnAuthorList_Click(object sender, EventArgs e)
-        {
-            AuthorBind();
+            }
         }
     }
 }
