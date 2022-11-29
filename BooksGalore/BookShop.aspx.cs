@@ -22,24 +22,30 @@ namespace BooksGalore
                 BookCard.DataBind();
             }
         }
+       
 
         public DataTable PopulateBooks()
         {
             DataTable itemData = new DataTable();
+            string cmdStr = "SELECT Books.Title, Author.FName, Author.LName, Books.Price, Books.UserReviews, Books.PublicationDate, BookCategories.CategoryDescription, Books.ISBN FROM " +
+                    "Books INNER JOIN BookCategories ON Books.CategoryCode = BookCategories.CategoryCode INNER JOIN Author ON Books.AuthorID = " +
+                    "Author.AuthorID";
             using (SqlConnection conn = new SqlConnection())
             {
                 conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
-                SqlCommand cmd = new SqlCommand
+                using (SqlCommand cmd = new SqlCommand(cmdStr,conn))
                 {
-                    CommandText = "SELECT Title, Author, Price, UserReviews, PublicationDate, CategoryDescription, ISBN FROM " +
-                    "Books, BookCategories WHERE Books.CategoryCode = BooksCategories.CategoryCode",
-                    Connection = conn
+                    conn.Open();
+                    itemData.Load(cmd.ExecuteReader());
                 };
-                conn.Open();
-                itemData.Load(cmd.ExecuteReader());
-                conn.Close();
-                return itemData;
+
             }
+           return itemData;
+        }
+
+        protected void addCartBtn_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Added"); 
         }
     }
 }

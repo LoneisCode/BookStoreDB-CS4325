@@ -6,13 +6,13 @@
         <ItemTemplate>
             <div class="itemCard">
                 <h2 id="bookTitle"><%# Eval("Title") %></h2>
-                <h3 id="authorOfBook"><%# Eval("Author") %></h3>
+                <h3 id="authorOfBook"><%#Eval("LName")%>,<%# Eval("FName") %></h3>
                 <h4 id="priceOfBook"><%# Eval("Price") %></h4>
                 <h4 id="reviewOfBook"><%# Eval("UserReviews") %></h4>
                 <p id="publication"><%# Eval("PublicationDate") %></p>
                 <p id="Categories"><%# Eval("CategoryDescription") %></p>
                  <p id="ISBN"><%# Eval("ISBN") %></p>
-                <button ID="addCartBtn" onclick="addToCart" />
+                <asp:button ID="addCartBtn" Text="Add to Cart" runat="server" OnClick="addCartBtn_Click"/>
             </div>
         </ItemTemplate>
     </asp:Repeater>
