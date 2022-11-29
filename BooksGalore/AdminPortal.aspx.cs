@@ -206,13 +206,13 @@ namespace BooksGalore
             {
                 ID = int.Parse(e.CommandArgument.ToString());
 
-                if (AdminTableStr == "Customers")
+                if (AdminTableStr == "Customer")
                     Response.Redirect("EditCustomer.aspx");
-                else if (AdminTableStr == "Orders")
+                else if (AdminTableStr == "Order")
                     Response.Redirect("AdminPortal.aspx");
                 else if (AdminTableStr == "Books")
                     Response.Redirect("EditBook.aspx");
-                else if (AdminTableStr == "Suppliers")
+                else if (AdminTableStr == "Supplier")
                     Response.Redirect("AdminPortal.aspx");
                 else
                     Response.Redirect("EditAuthor.aspx");
