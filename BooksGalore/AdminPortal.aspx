@@ -11,7 +11,7 @@
 
     <br />
     <asp:Panel ID="pnlAdmin" runat="server">
-        <asp:GridView ID="gvAdminInfo" runat="server" OnRowCommand="gvAdminInfo_RowCommand1">
+        <asp:GridView ID="gvAdminInfo" runat="server" OnRowCommand="gvAdminInfo_RowCommand1" OnRowDataBound="gvAdminInfo_RowDataBound1">
             <Columns>
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
