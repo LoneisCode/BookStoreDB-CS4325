@@ -31,8 +31,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtUserReviews.Text = sdr["UserReviews"].ToString();
+                    conn.Close();
                 }
                 else
                 {
@@ -59,8 +60,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtPublicationDate.Text = sdr["PublicationDate"].ToString();
+                    conn.Close();
                 }
                 else
                 {
@@ -87,8 +89,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                   
                     txtPrice.Text = sdr["Price"].ToString();
+                    conn.Close();
                 }
                 else
                 {
@@ -115,8 +118,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtTitle.Text = sdr["Title"].ToString();
+                    conn.Close();
                 }
                 else
                 {
@@ -143,8 +147,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtAuthorID.Text = sdr["AuthorID"].ToString();
+                    conn.Close();
                 }
                 else
                 {
@@ -171,8 +176,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtSID.Text = sdr["SID"].ToString();
+                    conn.Close();
                 }
                 else
                 {
@@ -199,8 +205,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtCategoryCode.Text = sdr["CategoryCode"].ToString();
+                    conn.Close();
                 }
                 else
                 {

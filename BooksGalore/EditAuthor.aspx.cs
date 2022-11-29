@@ -60,8 +60,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtFName.Text = sdr["FName"].ToString();
+                    conn.Close();
                 }
                 else
                 {
@@ -88,8 +89,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtLName.Text = sdr["LName"].ToString();
+                    conn.Close();
                 }
                 else
                 {
@@ -116,8 +118,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtDOB.Text = sdr["DOB"].ToString();
+                    conn.Close();
                 }
                 else
                 {

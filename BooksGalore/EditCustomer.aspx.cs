@@ -20,7 +20,7 @@ namespace BooksGalore
 
             SqlCommand searchUser = new SqlCommand
             {
-                CommandText = $"SELECT username From Customer WHERE CustomerID = {localId}",
+                CommandText = $"SELECT UserName From Customer WHERE CustomerID = {localId}",
                 Connection = conn
             };
 
@@ -31,8 +31,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
+                    
+                    txtUName.Text = sdr["UserName"].ToString();
                     conn.Close();
-                    txtUName.Text = sdr["Gender"].ToString();
                 }
                 else
                 {
@@ -59,8 +60,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtFName.Text = sdr["FName"].ToString();
+                    conn.Close();
                 }
                 else
                 {
@@ -87,8 +89,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtLName.Text = sdr["LName"].ToString();
+                    conn.Close();
                 }
                 else
                 {
