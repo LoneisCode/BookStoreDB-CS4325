@@ -31,8 +31,9 @@ namespace BooksGalore
             {
                 if (sdr.Read())
                 {
-                    conn.Close();
+                    
                     txtGender.Text = sdr["Gender"].ToString();
+                    conn.Close();
                 }
                 else
                 {

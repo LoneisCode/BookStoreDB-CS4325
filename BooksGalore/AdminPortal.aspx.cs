@@ -255,8 +255,8 @@ namespace BooksGalore
                 Button editButton = e.Row.FindControl("btnEdit") as Button;
                 Button deleteButton = e.Row.FindControl("btnDelete") as Button;
 
-                editButton.CommandArgument = e.Row.Cells[2].Text;
-                deleteButton.CommandArgument = e.Row.Cells[2].Text;
+                editButton.CommandArgument = e.Row.Cells[1].Text;
+                deleteButton.CommandArgument = e.Row.Cells[1].Text;
 
             }
         }

@@ -15,15 +15,15 @@ namespace BooksGalore
         }
         public void AddItem(double priceOfItem)
         {
-            cartValue += priceOfItem;
+            this.cartValue += priceOfItem;
         }
         public double GetCartValue()
         {
-            return cartValue;
+            return this.cartValue;
         }
         public string GetOwnerOfCart()
         {
-            return ownerOfCart;
+            return this.ownerOfCart;
         }
     }
 }
