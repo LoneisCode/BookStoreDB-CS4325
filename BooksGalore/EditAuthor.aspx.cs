@@ -142,7 +142,7 @@ namespace BooksGalore
 
             SqlCommand updateDb = new SqlCommand
             {
-                CommandText = $"UPDATE Author SET Gender = {txtGender.Text}, FName = {txtFName.Text}, LName = {txtLName.Text}, DOB = {txtDOB.Text} WHERE AuthorID = {AdminPortal.ID}",
+                CommandText = $"UPDATE Author SET Gender = {txtGender.Text}, FName = {txtFName.Text}, LName = {txtLName.Text}, DOB = {txtDOB.Text} WHERE AuthorID = {AdminPortal.ID};",
                 Connection = conn
             };
             Response.Redirect("AdminPortal.aspx");
