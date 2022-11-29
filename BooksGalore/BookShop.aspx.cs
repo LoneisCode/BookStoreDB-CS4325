@@ -12,14 +12,23 @@ namespace BooksGalore
 {
     public partial class BookShop : System.Web.UI.Page
     {
+        Cart cart;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (Session["username"] != null)
             {
-                DataTable itemData;
-                itemData = PopulateBooks();
-                BookCard.DataSource = itemData;
-                BookCard.DataBind();
+                if (!Page.IsPostBack)
+                {
+                    DataTable itemData;
+                    itemData = PopulateBooks();
+                    BookCard.DataSource = itemData;
+                    BookCard.DataBind();
+                    cart = new Cart(Session["username"].ToString());
+                }
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
             }
         }
        
@@ -45,7 +54,7 @@ namespace BooksGalore
 
         protected void addCartBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Added"); 
+
         }
     }
 }

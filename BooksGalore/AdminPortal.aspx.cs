@@ -36,7 +36,7 @@ namespace BooksGalore
 
         void CustomerBind()
         {
-            AdminTableStr = "Customers";
+            AdminTableStr = "Customer";
             IDName = "CustomerID";
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
@@ -44,7 +44,7 @@ namespace BooksGalore
             // 2. Create a SqlCommand object
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "SELECT * FROM Customers";
+            cmd.CommandText = "SELECT * FROM Customer";
             cmd.Connection = conn;
 
             SqlDataAdapter sda = new SqlDataAdapter();
@@ -63,7 +63,7 @@ namespace BooksGalore
 
         void OrderBind()
         {
-            AdminTableStr = "Orders";
+            AdminTableStr = "Order";
             IDName = "OrderID";
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
@@ -71,7 +71,7 @@ namespace BooksGalore
             // 2. Create a SqlCommand object
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "SELECT * FROM Orders";
+            cmd.CommandText = "SELECT * FROM Order";
             cmd.Connection = conn;
 
             SqlDataAdapter sda = new SqlDataAdapter();
@@ -120,14 +120,14 @@ namespace BooksGalore
         void SupplierBind()
         {
             IDName = "SID";
-            AdminTableStr = "Suppliers";
+            AdminTableStr = "Supplier";
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
 
             // 2. Create a SqlCommand object
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "SELECT * FROM Suppliers";
+            cmd.CommandText = "SELECT * FROM Supplier";
             cmd.Connection = conn;
 
             SqlDataAdapter sda = new SqlDataAdapter();
@@ -148,14 +148,14 @@ namespace BooksGalore
         void AuthorBind()
         {
             IDName = "AuthorID";
-            AdminTableStr = "Authors";
+            AdminTableStr = "Author";
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
 
             // 2. Create a SqlCommand object
             SqlCommand cmd = new SqlCommand();
 
-            cmd.CommandText = "SELECT * FROM Authors";
+            cmd.CommandText = "SELECT * FROM Author";
             cmd.Connection = conn;
 
             SqlDataAdapter sda = new SqlDataAdapter();

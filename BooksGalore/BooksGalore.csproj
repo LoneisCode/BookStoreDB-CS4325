@@ -225,6 +225,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Style\BookShop.css" />
     <Content Include="Style\Home.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -275,6 +276,7 @@
     <Compile Include="BookShop.aspx.designer.cs">
       <DependentUpon>BookShop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cart.cs" />
     <Compile Include="CommonQuerys.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
