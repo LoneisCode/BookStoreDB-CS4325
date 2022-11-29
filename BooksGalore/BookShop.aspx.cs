@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,15 +16,29 @@ namespace BooksGalore
         {
             if (!Page.IsPostBack)
             {
-                if (Session["username"] != null)
-                {
+                DataTable itemData;
+                itemData = PopulateBooks();
+                BookCard.DataSource = itemData;
+                BookCard.DataBind();
+            }
+        }
 
-                }
-                else
+        public DataTable PopulateBooks()
+        {
+            DataTable itemData = new DataTable();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
+                SqlCommand cmd = new SqlCommand
                 {
-                    Response.Redirect("Login.aspx");
-                }
-
+                    CommandText = "SELECT Title, Author, Price, UserReviews, PublicationDate, CategoryDescription, ISBN FROM " +
+                    "Books, BookCategories WHERE Books.CategoryCode = BooksCategories.CategoryCode",
+                    Connection = conn
+                };
+                conn.Open();
+                itemData.Load(cmd.ExecuteReader());
+                conn.Close();
+                return itemData;
             }
         }
     }
