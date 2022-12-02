@@ -13,9 +13,9 @@ namespace BooksGalore
 {
     public partial class BookShop : System.Web.UI.Page
     {
-        Cart cart;
         DataTable itemData;
         double price;
+        Cart cart;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["username"] != null)
@@ -23,7 +23,7 @@ namespace BooksGalore
                
                 if (!Page.IsPostBack)
                 {
-                    this.cart = new Cart(Session["username"].ToString());
+                    Session["UserCart"] = new Cart(Session["username"].ToString());
                     itemData = PopulateBooks();
                     BookRow.DataSource = itemData;
                     BookRow.DataBind();
