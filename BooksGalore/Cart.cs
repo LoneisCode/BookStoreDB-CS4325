@@ -10,7 +10,7 @@ namespace BooksGalore
     {
         private double cartValue = 0;
         private string ownerOfCart = "";
-        public List<OrderItem> cartItems = new List<OrderItem>();
+        private List<OrderItem> cartItems = new List<OrderItem>();
         public Cart(string ownerOfCart) {
             this.ownerOfCart = ownerOfCart;
             this.cartValue= 0;
@@ -28,9 +28,16 @@ namespace BooksGalore
         {
             return this.ownerOfCart;
         }
-        public void RemoveItem(OrderItem item)
+        public void RemoveItem(int id)
         {
-            this.cartItems.Remove(item);
+            foreach(OrderItem i in this.cartItems)
+            {
+                if(i.getId() == id)
+                {
+                    this.cartItems.Remove(i);
+                    break;
+                }
+            }
         }
         public List<OrderItem> GetOrderItems()
         {
