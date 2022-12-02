@@ -4,19 +4,15 @@
     
     <h1>Galore of Books</h1>
     <asp:Label ID="cartValue" runat="server"></asp:Label>
-    <asp:Repeater runat="server" ID="BookCard" >
-        <ItemTemplate>
-            <div class="itemCard">
-                <asp:Label id="bookTitle" runat="server"><%# Eval("Title") %></asp:Label>
-                <asp:Label id="authorOfBook" runat="server"><%#Eval("LName")%>,<%# Eval("FName") %></asp:Label>
-                <asp:Label id="priceOfBook" runat="server"><%# Eval("Price") %></asp:Label>
-                <p id="reviewOfBook" ><%# Eval("UserReviews") %></p>
-                <p id="publication"><%# Eval("PublicationDate") %></p>
-                <p id="Categories"><%# Eval("CategoryDescription") %></p>
-                 <p id="ISBN"><%# Eval("ISBN") %></p>
-                <asp:button ID="addCartBtn" Text="Add to Cart" runat="server" OnClick="addCartBtn_Click"/>
-            </div>
-        </ItemTemplate>
-    </asp:Repeater>
-    
+    <asp:Panel runat="server">
+    <asp:GridView runat="server" ID="BookRow" BackColor="#666666" ForeColor="White" OnRowCommand="BookRow_RowCommand" OnRowDataBound="BookRow_RowDataBound">
+        <Columns>
+                <asp:TemplateField HeaderText="Actions">
+                    <ItemTemplate>
+                        <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-primary" Text="Add to Cart" CommandName="AddToCart" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns> 
+    </asp:GridView>
+    </asp:Panel>
 </asp:Content>
