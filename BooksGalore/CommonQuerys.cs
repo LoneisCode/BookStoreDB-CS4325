@@ -57,8 +57,9 @@ namespace BooksGalore
                 {
                     if (sdr.Read())
                     {
-                        conn.Close();
+                        
                         return sdr["CustomerID"].ToString();
+                        
                     }
                     else
                     {

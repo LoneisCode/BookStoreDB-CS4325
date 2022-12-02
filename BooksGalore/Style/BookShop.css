@@ -16,4 +16,10 @@ body {
     text-align: left;
     padding: 10px;
 }
+#loginLink {
+    visibility: hidden;
+}
+#signUpLink {
+    visibility: hidden;
+}
 

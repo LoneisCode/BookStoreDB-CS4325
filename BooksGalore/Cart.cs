@@ -32,5 +32,9 @@ namespace BooksGalore
         {
             this.cartItems.Remove(item);
         }
+        public List<OrderItem> GetOrderItems()
+        {
+            return this.cartItems;
+        }
     }
 }

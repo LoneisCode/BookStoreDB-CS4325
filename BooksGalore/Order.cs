@@ -10,7 +10,8 @@ namespace BooksGalore
         private string ownerID;
         private List<OrderItem> orderItems;
         public Order(string username) { 
-            ownerID= GetUserID(username);
+            this.ownerID= GetUserID(username);
+            this.orderItems = new List<OrderItem>();
         }
         public void AddOrderItem(OrderItem item)
         {

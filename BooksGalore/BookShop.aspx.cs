@@ -77,26 +77,5 @@ namespace BooksGalore
                 cartValue.Text = cart.GetCartValue().ToString();
             }
         }
-
-        //protected void Search_TextChanged(object sender, EventArgs e)
-        //{
-        //    DataTable itemData = new DataTable();
-        //    string cmdStr = "SELECT Books.Title, Author.FName, Author.LName, Books.Price, Books.UserReviews, Books.PublicationDate, BookCategories.CategoryDescription, Books.ISBN FROM " +
-        //            "Books INNER JOIN BookCategories ON Books.CategoryCode = BookCategories.CategoryCode INNER JOIN Author ON Books.AuthorID = " +
-        //            "Author.AuthorID " +
-        //            "WHERE Books.Title = '"+ SearchBx.Text.Trim() +"'";
-        //    using (SqlConnection conn = new SqlConnection())
-        //    {
-        //        conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
-        //        using (SqlCommand cmd = new SqlCommand(cmdStr, conn))
-        //        {
-        //            conn.Open();
-        //            itemData.Load(cmd.ExecuteReader());
-        //        };
-
-        //    }
-        //    BookCard.DataSource = itemData;
-        //    BookCard.DataBind();
-        //}
     }
 }
