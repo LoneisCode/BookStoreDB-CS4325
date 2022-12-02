@@ -118,6 +118,9 @@
     <Content Include="Content\Images\lone_pic.jfif" />
     <Content Include="Content\Images\paul-melki-bByhWydZLW0-unsplash.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="EditAuthor.aspx" />
+    <Content Include="EditBook.aspx" />
+    <Content Include="EditCustomer.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
@@ -225,6 +228,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Style\BookShop.css" />
     <Content Include="Style\Home.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -275,6 +279,7 @@
     <Compile Include="BookShop.aspx.designer.cs">
       <DependentUpon>BookShop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cart.cs" />
     <Compile Include="CommonQuerys.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -282,6 +287,27 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAuthor.aspx.cs">
+      <DependentUpon>EditAuthor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAuthor.aspx.designer.cs">
+      <DependentUpon>EditAuthor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditBook.aspx.cs">
+      <DependentUpon>EditBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditBook.aspx.designer.cs">
+      <DependentUpon>EditBook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditCustomer.aspx.cs">
+      <DependentUpon>EditCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditCustomer.aspx.designer.cs">
+      <DependentUpon>EditCustomer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -335,9 +361,7 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
