@@ -62,7 +62,6 @@ namespace BooksGalore
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 Button addBtn = e.Row.FindControl("btnAdd") as Button;
-                addBtn.CommandArgument = e.Row.Cells[4].Text;
 
             }
         }
@@ -71,8 +70,10 @@ namespace BooksGalore
         {
             if (e.CommandName == "AddToCart")
             {
-                price = double.Parse(e.CommandArgument.ToString());
-                cart.AddItem(price);
+                string[] parms = e.CommandArgument.ToString().Split(new char[] { ',' });
+                price = double.Parse(parms[1]);
+                OrderItem item = new OrderItem(parms[0],price, parms[2]);
+                cart.AddItem(item);
                 cartValue.Text = cart.GetCartValue().ToString();
             }
         }

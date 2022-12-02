@@ -9,7 +9,7 @@
         <Columns>
                 <asp:TemplateField HeaderText="Actions">
                     <ItemTemplate>
-                        <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-primary" Text="Add to Cart" CommandName="AddToCart" />
+                        <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-primary" Text="Add to Cart" CommandName="AddToCart"  CommandArgument = '<%#Eval("Title")+","+Eval("Price")+","+ Eval("ISBN")%> '/>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns> 
