@@ -7,14 +7,18 @@ namespace BooksGalore
 {
     public class OrderItem
     {
-        private double price;
-        private int inOrderNum;
-        private string isbn;
-        private string title;
+        public double price { get;}
+        public int inOrderNum { get; set; }
+        public static int idCount;
+        public string isbn { get;}
+        public string title { get;}
+        public int id { get; set; }
         public OrderItem(string title, double price, string isbn) { 
             this.price = price;
             this.isbn = isbn;
             this.title = title;
+            idCount += 1;
+            this.id = idCount;
         }
 
         public void SetOrderNum(int orderNum)
@@ -32,6 +36,10 @@ namespace BooksGalore
         }
         public string GetTitle() { 
             return title;
+        }
+        public int getId()
+        {
+            return id;
         }
     }
 }
