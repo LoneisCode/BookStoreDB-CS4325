@@ -25,12 +25,15 @@ namespace BooksGalore
                     BookCard.DataSource = itemData;
                     BookCard.DataBind();
                     cart = new Cart(Session["username"].ToString());
+                    Session["UserCart"] = cart as Cart;
                 }
+                cart = Session["UserCart"] as Cart;
             }
             else
             {
                 Response.Redirect("Login.aspx");
             }
+
         }
        
 
