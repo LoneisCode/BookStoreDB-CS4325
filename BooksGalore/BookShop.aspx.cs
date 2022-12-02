@@ -15,17 +15,18 @@ namespace BooksGalore
     {
         Cart cart;
         DataTable itemData;
+        double price;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["username"] != null)
             {
+               
                 if (!Page.IsPostBack)
                 {
+                    this.cart = new Cart(Session["username"].ToString());
                     itemData = PopulateBooks();
-                    BookCard.DataSource = itemData;
-                    BookCard.DataBind();
-                    cart = new Cart(Session["username"].ToString());
-                    Session["UserCart"] = cart as Cart;
+                    BookRow.DataSource = itemData;
+                    BookRow.DataBind();
                 }
                 cart = Session["UserCart"] as Cart;
             }
@@ -56,14 +57,23 @@ namespace BooksGalore
            return itemData;
         }
 
-        protected void addCartBtn_Click(object sender, EventArgs e)
+        protected void BookRow_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            foreach(RepeaterItem item in BookCard.Items) {
-                var price = (Label)item.FindControl("Content");
-                string valtext = price.Text;
-                double itemValue = double.Parse(valtext);
-                cart.AddItem(itemValue);
-                cartValue.Text = (cart.GetCartValue()).ToString();
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Button addBtn = e.Row.FindControl("btnAdd") as Button;
+                addBtn.CommandArgument = e.Row.Cells[4].Text;
+
+            }
+        }
+
+        protected void BookRow_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "AddToCart")
+            {
+                price = double.Parse(e.CommandArgument.ToString());
+                cart.AddItem(price);
+                cartValue.Text = cart.GetCartValue().ToString();
             }
         }
 

@@ -12,6 +12,7 @@ namespace BooksGalore
         private string ownerOfCart = "";
         public Cart(string ownerOfCart) {
             this.ownerOfCart = ownerOfCart;
+            this.cartValue= 0;
         }
         public void AddItem(double priceOfItem)
         {
@@ -19,7 +20,7 @@ namespace BooksGalore
         }
         public double GetCartValue()
         {
-            return this.cartValue;
+            return this.cartValue ;
         }
         public string GetOwnerOfCart()
         {
