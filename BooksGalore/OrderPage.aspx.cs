@@ -26,6 +26,7 @@ namespace BooksGalore.Style
                     CartItemRow.DataBind();
                 }
                 currCart = Session["UserCart"] as Cart;
+                
             }
             else
             {
@@ -42,7 +43,7 @@ namespace BooksGalore.Style
             {
                 order.AddOrderItem(i);
             }
-            order.PutInRecords();
+            order.PutInRecords(order);
             Response.Redirect("BookShop.aspx");
         }
 
@@ -52,6 +53,8 @@ namespace BooksGalore.Style
             {
                 int idOfItem = int.Parse(e.CommandArgument.ToString());
                 currCart.RemoveItem(idOfItem);
+                CartItemRow.DataSource = currCart.GetOrderItems();
+                CartItemRow.DataBind();
             }
         }
 
@@ -61,6 +64,11 @@ namespace BooksGalore.Style
             {
                 Button delBtn = e.Row.FindControl("dtlItem") as Button;
             }
+        }
+
+        protected void Back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BookShop.aspx");
         }
     }
 }

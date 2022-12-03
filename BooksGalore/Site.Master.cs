@@ -14,12 +14,10 @@ namespace BooksGalore
             if (Session["username"] != null)
             {
                 signoutBtn.Visible = true;
-                orderBtn.Visible = true;
             }
             else
             {
                 signoutBtn.Visible = false;
-                orderBtn.Visible = false;
             }
         }
 

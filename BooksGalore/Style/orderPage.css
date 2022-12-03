@@ -1,0 +1,16 @@
+﻿*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #704b5b;
+}
+#loginLink {
+    visibility: hidden;
+}
+
+#signUpLink {
+    visibility: hidden;
+}

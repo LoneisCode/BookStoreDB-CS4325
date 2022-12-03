@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -76,7 +77,49 @@ namespace BooksGalore
             }
         }
 
+        public static string SQLPlaceOrder(Order order) 
+        {
+            string customerID = order.GetOwnerId();
+            double val = order.GetValueOrder();
+            string date = order.GetDate();
 
+            using(SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
+                SqlCommand placeO = new SqlCommand
+                {
+                    CommandText = $"INSERT INTO [Order](OrderDate, OrderValue, CustomerID) Values('{date}',{val},{customerID});" +
+                    $" SELECT SCOPE_IDENTITY();",
+                    Connection = conn
+                };
+                conn.Open();
+
+                
+
+                return placeO.ExecuteScalar().ToString();
+
+            }
+
+        }
+        public static void SQLPlaceOrderItem(OrderItem oItem)
+        {
+            double val = oItem.GetPrice();
+            string isbn = oItem.GetIsbn();
+            string oID = oItem.GetOrderNum();
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
+                SqlCommand placeO = new SqlCommand
+                {
+                    CommandText = $"INSERT INTO OrderItem(ItemPrice, OrderID, ISBN) Values({val}, {oID}, {isbn});" +
+                    $" SELECT SCOPE_IDENTITY()",
+                    Connection = conn
+                };
+                conn.Open();
+                placeO.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
 
     }
 

@@ -255,6 +255,7 @@
     <Content Include="Site.Master" />
     <Content Include="Login.aspx" />
     <Content Include="OrderPage.aspx" />
+    <Content Include="Style\orderPage.css" />
     <Content Include="Style\register.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">

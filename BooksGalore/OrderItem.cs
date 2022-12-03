@@ -8,7 +8,7 @@ namespace BooksGalore
     public class OrderItem
     {
         public double price { get;}
-        public int inOrderNum { get; set; }
+        public string inOrderNum { get; set; }
         public static int idCount;
         public string isbn { get;}
         public string title { get;}
@@ -21,9 +21,13 @@ namespace BooksGalore
             this.id = idCount;
         }
 
-        public void SetOrderNum(int orderNum)
+        public void SetOrderNum(string orderNum)
         {
             this.inOrderNum = orderNum;
+        }
+        public string GetOrderNum()
+        {
+            return this.inOrderNum;
         }
 
         public double GetPrice()

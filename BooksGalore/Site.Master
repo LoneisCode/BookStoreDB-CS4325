@@ -52,9 +52,6 @@
                    <li class="nav-item">
                         <asp:Button runat="server" OnClick="signout_Click" CssClass="nav-link" ID="signoutBtn" Text="Signout"/>
                   </li>
-                <li class="nav-item">
-                    <asp:Button runat="server" OnClick="Order_Click" CssClass="nav-link" ID ="orderBtn" Text="Place Order" />
-                </li>
                 </ul>
               </div>
         </nav>

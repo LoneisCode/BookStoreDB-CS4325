@@ -77,5 +77,10 @@ namespace BooksGalore
                 cartValue.Text = cart.GetCartValue().ToString();
             }
         }
+
+        protected void orderBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OrderPage.aspx");
+        }
     }
 }
