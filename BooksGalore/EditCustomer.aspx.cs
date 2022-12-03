@@ -113,9 +113,11 @@ namespace BooksGalore
 
             SqlCommand updateDb = new SqlCommand
             {
-                CommandText = $"UPDATE Customer SET username = {txtUName.Text}, FName = {txtFName.Text}, LName = {txtLName.Text} WHERE CustomerID = {AdminPortal.ID};",
+                CommandText = $"UPDATE Customer SET UserName = '{txtUName.Text}', FName = '{txtFName.Text}', LName = '{txtLName.Text}' WHERE CustomerID = {AdminPortal.ID};",
                 Connection = conn
             };
+
+            conn.Open();
             updateDb.ExecuteNonQuery();
             Response.Redirect("AdminPortal.aspx");
         }
