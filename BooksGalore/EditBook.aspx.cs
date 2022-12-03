@@ -255,6 +255,7 @@ namespace BooksGalore
             updateDb.Parameters.AddWithValue("@SID", SID);
             updateDb.Parameters.AddWithValue("@CategoryCode", CategoryCode);
             updateDb.Parameters.AddWithValue("@LocalId", AdminPortal.ID);
+            conn.Open();
             int i = updateDb.ExecuteNonQuery();
             Response.Redirect("AdminPortal.aspx");
         }
