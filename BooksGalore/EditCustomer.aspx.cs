@@ -116,6 +116,7 @@ namespace BooksGalore
                 CommandText = $"UPDATE Customer SET username = {txtUName.Text}, FName = {txtFName.Text}, LName = {txtLName.Text} WHERE CustomerID = {AdminPortal.ID};",
                 Connection = conn
             };
+            updateDb.ExecuteNonQuery();
             Response.Redirect("AdminPortal.aspx");
         }
     }

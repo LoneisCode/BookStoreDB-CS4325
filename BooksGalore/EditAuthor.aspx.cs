@@ -154,6 +154,7 @@ namespace BooksGalore
                 CommandText = $"UPDATE Author SET Gender = {gender}, FName = {FName}, LName = {LName}, DOB = {DOB} WHERE AuthorID = {AdminPortal.ID};",
                 Connection = conn
             };
+            int i = updateDb.ExecuteNonQuery();
             Response.Redirect("AdminPortal.aspx");
         }
 
