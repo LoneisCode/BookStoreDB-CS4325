@@ -43,6 +43,7 @@ namespace BooksGalore
                 {
                     
                     txtUName.Text = sdr["UserName"].ToString();
+                    UName = txtUName.Text;
                     conn.Close();
                 }
                 else
@@ -72,6 +73,7 @@ namespace BooksGalore
                 {
                     
                     txtFName.Text = sdr["FName"].ToString();
+                    FName = txtFName.Text;
                     conn.Close();
                 }
                 else
@@ -101,6 +103,7 @@ namespace BooksGalore
                 {
                     
                     txtLName.Text = sdr["LName"].ToString();
+                    LName = txtLName.Text;
                     conn.Close();
                 }
                 else
