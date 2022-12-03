@@ -244,7 +244,7 @@ namespace BooksGalore
 
             SqlCommand updateDb = new SqlCommand
             {
-                CommandText = $"UPDATE Books SET UserReviews = @UserReviews, PublicationDate = @PublicationDate, Price = @Price, Title = @Title, AuthorID = @AuthorID, SID = @SID, CategoryCode = @CategoryCode WHERE ISBN = @LocalId;",
+                CommandText = "UPDATE Books SET UserReviews = @UserReviews, PublicationDate = @PublicationDate, Price = @Price, Title = @Title, AuthorID = @AuthorID, SID = @SID, CategoryCode = @CategoryCode WHERE ISBN = @LocalId;",
                 Connection = conn
             };
             updateDb.Parameters.AddWithValue("@UserReviews", UserReviews);
