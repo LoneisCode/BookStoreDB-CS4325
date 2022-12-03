@@ -244,9 +244,10 @@ namespace BooksGalore
 
             SqlCommand updateDb = new SqlCommand
             {
-                CommandText = $"UPDATE Books SET UserReviews = {txtUserReviews.Text}, PublicationDate = {txtPublicationDate.Text}, Price = {txtPrice.Text}, Title = {txtTitle.Text}, AuthorID = {txtAuthorID.Text}, SID = {txtSID.Text}, CategoryCode = {txtCategoryCode.Text} WHERE ISBN = {AdminPortal.ID};",
+                CommandText = $"UPDATE Books SET UserReviews = {UserReviews}, PublicationDate = {PublicationDate}, Price = {Price}, Title = {Title}, AuthorID = {AuthorID}, SID = {SID}, CategoryCode = {CategoryCode} WHERE ISBN = {AdminPortal.ID};",
                 Connection = conn
             };
+            int i = updateDb.ExecuteNonQuery();
             Response.Redirect("AdminPortal.aspx");
         }
 
