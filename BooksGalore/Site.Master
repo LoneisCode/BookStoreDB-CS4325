@@ -52,6 +52,9 @@
                    <li class="nav-item">
                         <asp:Button runat="server" OnClick="signout_Click" CssClass="nav-link" ID="signoutBtn" Text="Signout"/>
                   </li>
+                    <li class="nav-item">
+                        <asp:Button ID="editProfile" runat="server" Text="Edit Profile" OnClick="editProfile_Click" />
+                    </li>
                 </ul>
               </div>
         </nav>

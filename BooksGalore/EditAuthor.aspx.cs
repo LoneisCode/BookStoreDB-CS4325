@@ -151,9 +151,14 @@ namespace BooksGalore
 
             SqlCommand updateDb = new SqlCommand
             {
-                CommandText = $"UPDATE Author SET Gender = {gender}, FName = {FName}, LName = {LName}, DOB = {DOB} WHERE AuthorID = {AdminPortal.ID};",
+                CommandText = "UPDATE Author SET Gender = @Gender, FName = @FName, LName = @LName, DOB = @DOB WHERE AuthorID = @LocalID;",
                 Connection = conn
             };
+            updateDb.Parameters.AddWithValue("@Gender", gender);
+            updateDb.Parameters.AddWithValue("@FName", FName);
+            updateDb.Parameters.AddWithValue("@LName", LName);
+            updateDb.Parameters.AddWithValue("@DOB", DOB);
+            updateDb.Parameters.AddWithValue("@LocalId", AdminPortal.ID);
             int i = updateDb.ExecuteNonQuery();
             Response.Redirect("AdminPortal.aspx");
         }

@@ -12,10 +12,38 @@ namespace BooksGalore
 {
     public partial class EditCustomer : System.Web.UI.Page
     {
+        public string UName;
+        public string FName;
+        public string LName;
+        public string localId;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string localId = AdminPortal.ID;
-            SqlConnection conn = new SqlConnection();
+            SqlDataReader sdr;
+            SqlConnection conn;
+            localId = "-1";
+
+            if (Session["username"].ToString() == "admin")
+                localId = AdminPortal.ID;
+            else
+            {
+                using (conn = new SqlConnection())
+                {
+                    conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
+                    SqlCommand val = new SqlCommand()
+                    {
+                        Connection = conn,
+                        CommandText = "SELECT ID FROM Customer WHERE UserName ='" + Session["username"] + "';"
+                    };
+                    conn.Open();
+                    sdr = val.ExecuteReader();
+                    if (sdr.Read())
+                        localId = sdr["ID"].ToString();
+
+                }
+            } 
+                
+            
+            conn = new SqlConnection();
             conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
 
             SqlCommand searchUser = new SqlCommand
@@ -26,7 +54,7 @@ namespace BooksGalore
 
             conn.Open();
 
-            SqlDataReader sdr = searchUser.ExecuteReader();
+            sdr = searchUser.ExecuteReader();
             if (sdr.HasRows)
             {
                 if (sdr.Read())
@@ -113,13 +141,31 @@ namespace BooksGalore
 
             SqlCommand updateDb = new SqlCommand
             {
-                CommandText = $"UPDATE Customer SET UserName = '{txtUName.Text}', FName = '{txtFName.Text}', LName = '{txtLName.Text}' WHERE CustomerID = {AdminPortal.ID};",
+                CommandText = "UPDATE Customer SET UserName = @UName, FName = @FName, LName = @LName WHERE CustomerID = @LocalId;",
                 Connection = conn
             };
-
+            updateDb.Parameters.AddWithValue("@UName", UName);
+            updateDb.Parameters.AddWithValue("@FName", FName);
+            updateDb.Parameters.AddWithValue("@LName", LName);
+            updateDb.Parameters.AddWithValue("@LocalId", localId);
             conn.Open();
             updateDb.ExecuteNonQuery();
             Response.Redirect("AdminPortal.aspx");
+        }
+
+        protected void txtFName_TextChanged(object sender, EventArgs e)
+        {
+            UName = txtUName.Text;
+        }
+
+        protected void txtLName_TextChanged(object sender, EventArgs e)
+        {
+            FName = txtFName.Text;
+        }
+
+        protected void txtUName_TextChanged(object sender, EventArgs e)
+        {
+            LName = txtLName.Text;
         }
     }
 }
