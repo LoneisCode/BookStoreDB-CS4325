@@ -19,7 +19,7 @@ namespace BooksGalore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int localId = AdminPortal.ID;
+            string localId = AdminPortal.ID;
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
 

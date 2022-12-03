@@ -15,7 +15,7 @@ namespace BooksGalore
     {
         public static String AdminTableStr;
         public static String IDName;
-        public static int ID;
+        public static String ID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -204,7 +204,7 @@ namespace BooksGalore
             //edit adn delete button functionality
             if (e.CommandName == "EditRow") // the Edit button was clicked
             {
-                ID = int.Parse(e.CommandArgument.ToString());
+                ID = e.CommandArgument.ToString();
 
                 if (AdminTableStr == "Customer")
                     Response.Redirect("EditCustomer.aspx");
@@ -223,7 +223,7 @@ namespace BooksGalore
                 using (SqlConnection conn = new SqlConnection())
                 {
                     conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
-                    ID = int.Parse(e.CommandArgument.ToString());
+                    ID = e.CommandArgument.ToString();
                     // 2. Create a SqlCommand object
                     SqlCommand cmd = new SqlCommand();
                     cmd.CommandText = $"DELETE FROM {AdminTableStr} WHERE {IDName} = " + ID;
