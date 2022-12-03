@@ -32,12 +32,12 @@ namespace BooksGalore
                     SqlCommand val = new SqlCommand()
                     {
                         Connection = conn,
-                        CommandText = "SELECT ID FROM Customer WHERE UserName ='" + Session["username"] + "';"
+                        CommandText = "SELECT CustomerID FROM Customer WHERE UserName ='" + Session["username"] + "';"
                     };
                     conn.Open();
                     sdr = val.ExecuteReader();
                     if (sdr.Read())
-                        localId = sdr["ID"].ToString();
+                        localId = sdr["CustomerID"].ToString();
 
                 }
             } 
