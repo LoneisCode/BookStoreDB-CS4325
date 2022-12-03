@@ -159,6 +159,7 @@ namespace BooksGalore
             updateDb.Parameters.AddWithValue("@LName", LName);
             updateDb.Parameters.AddWithValue("@DOB", DOB);
             updateDb.Parameters.AddWithValue("@LocalId", AdminPortal.ID);
+            conn.Open();
             int i = updateDb.ExecuteNonQuery();
             Response.Redirect("AdminPortal.aspx");
         }

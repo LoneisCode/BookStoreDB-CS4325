@@ -20,27 +20,9 @@ namespace BooksGalore
         {
             SqlDataReader sdr;
             SqlConnection conn;
-            localId = "-1";
 
-            if (Session["username"].ToString() == "admin")
-                localId = AdminPortal.ID;
-            else
-            {
-                using (conn = new SqlConnection())
-                {
-                    conn.ConnectionString = WebConfigurationManager.ConnectionStrings["BooksGaloreConnStr"].ConnectionString;
-                    SqlCommand val = new SqlCommand()
-                    {
-                        Connection = conn,
-                        CommandText = "SELECT ID FROM Customer WHERE UserName ='" + Session["username"] + "';"
-                    };
-                    conn.Open();
-                    sdr = val.ExecuteReader();
-                    if (sdr.Read())
-                        localId = sdr["ID"].ToString();
-
-                }
-            } 
+            localId = AdminPortal.ID;
+            
                 
             
             conn = new SqlConnection();
