@@ -8,6 +8,7 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using static BooksGalore.CommonQuerys;
 
 namespace BooksGalore
 {
@@ -28,6 +29,7 @@ namespace BooksGalore
                     BookRow.DataSource = itemData;
                     BookRow.DataBind();
                 }
+                BookRow.DataSource = itemData;
                 cart = Session["UserCart"] as Cart;
             }
             else
@@ -81,6 +83,20 @@ namespace BooksGalore
         protected void orderBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("OrderPage.aspx");
+        }
+
+        protected void searchBx_TextChanged(object sender, EventArgs e)
+        {
+            DataTable queryItems = GetSearchRequest(searchBx.Text.Trim());
+            if(queryItems == null)
+            {
+                return;
+            }
+            else
+            {
+                itemData = queryItems;
+            }
+            
         }
     }
 }

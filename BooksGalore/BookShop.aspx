@@ -5,6 +5,7 @@
     <h1>Galore of Books</h1>
     <asp:Label ID="cartValue" runat="server"></asp:Label>
     <asp:Button runat="server" ID ="orderBtn" Text="Place Order"  OnClick="orderBtn_Click"/>
+    <asp:TextBox runat="server" ID="searchBx" OnTextChanged="searchBx_TextChanged" />
     <asp:Panel runat="server">
     <asp:GridView runat="server" ID="BookRow" BackColor="#666666" ForeColor="White" OnRowCommand="BookRow_RowCommand" OnRowDataBound="BookRow_RowDataBound">
         <Columns>
